@@ -1,0 +1,4 @@
+SELECT * FROM customer;
+
+DELETE FROM customer WHERE id = 6;
+SELECT * FROM customer;
