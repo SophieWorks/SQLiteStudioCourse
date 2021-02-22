@@ -1,0 +1,60 @@
+SELECT c.name as Customer, c.zip, i.name as Item, i.description, s.quantity, s.price as price
+    FROM customer AS c
+    LEFT JOIN sale AS s ON s.customer_id=c.id
+    LEFT JOIN item as i ON s.item_id=i.id --crossover thingy thing
+    ;
+    
+Select name FROM customer AS namething;
+
+Select price from sale AS pricing;
+
+select * from customer;
+
+
+
+-- 5 STRING
+
+Select Name, Length(Name) AS length FROM city
+    ORDER BY length ASC
+    ;
+    
+    
+SELECT SUBSTR('this string', 6,3); -- first # is start from which string, second # is how many characters  
+
+SELECT TRIM('....string...','.');
+SELECT TRIM('....string... ');
+
+SELECT LOWER('StRiNg');
+SELECT UPPER('StRiNg');
+
+SELECT TRIM('','t');
+
+SELECT TRIM('The test was a treat','t');
+
+
+
+-- 7 DATE AND TIME
+
+SELECT datetime('now');
+SELECT date('now');
+SELECT time('now');
+
+-------------- 8 AGGREGATES
+
+--aggregate data is info derived from more than one row at a time
+
+-- do world
+select Region, COUNT(*) AS Count
+    FROM Country
+    GROUP BY Region
+    ORDER BY Count DESC, Region    
+;
+
+-- do album
+
+SELECT a.title AS Album, COUNT(t.track_number) as Tracks
+  FROM track AS t
+  JOIN album AS a
+    ON a.id = t.album_id
+  GROUP BY a.id
+  ORDER BY Tracks DESC, Album
